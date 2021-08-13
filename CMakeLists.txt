@@ -29,6 +29,8 @@ add_executable(inside_outside WIN32 MACOSX_BUNDLE
 	shaders/vshader.glsl
 	source/common/Angel.h
 	source/common/mat.h
+    source/common/u8names.cpp
+    source/common/u8names.h
     source/common/vec.h)
 
 #Windows cleanup
