@@ -12,7 +12,7 @@ using namespace Angel;
 
 //Globals there is a way to avoid this, but for now let's do the bad thing.
 int current_object = 0;
-int num_obj = 4;
+int num_obj = 3;
 std::vector < GLuint > vao;
 std::vector < GLuint > buffer;
 std::vector < vec2 * > objects;
@@ -151,7 +151,7 @@ void init(GLuint &glShaderProgram){
     glBindBuffer( GL_ARRAY_BUFFER, buffer[i] );
     
     //Create GPU buffer to hold vertices and color
-    glBufferData( GL_ARRAY_BUFFER, num_points[i]*sizeof(vec2)*num_points[i]*sizeof(vec3), NULL, GL_STATIC_DRAW );
+    glBufferData( GL_ARRAY_BUFFER, num_points[i]*sizeof(vec2)+num_points[i]*sizeof(vec3), NULL, GL_STATIC_DRAW );
     //First part of array holds vertices
     glBufferSubData( GL_ARRAY_BUFFER, 0, num_points[i]*sizeof(vec2), objects[i] );
     //Second part of array hold colors (offset by sizeof(triangle))
@@ -186,7 +186,7 @@ void init(GLuint &glShaderProgram){
   glBindVertexArray( x_vao);
   glGenBuffers( 1, &x_buffer );
   glBindBuffer( GL_ARRAY_BUFFER, x_buffer );
-  glBufferData( GL_ARRAY_BUFFER, x_bytes*x_color_bytes, NULL, GL_STATIC_DRAW );
+  glBufferData( GL_ARRAY_BUFFER, x_bytes+x_color_bytes, NULL, GL_STATIC_DRAW );
   glBufferSubData( GL_ARRAY_BUFFER, 0, x_bytes, x );
   glBufferSubData( GL_ARRAY_BUFFER, x_bytes, x_color_bytes, x_colors );
 
@@ -214,7 +214,7 @@ void init(GLuint &glShaderProgram){
   glBindVertexArray( check_vao);
   glGenBuffers( 1, &check_buffer );
   glBindBuffer( GL_ARRAY_BUFFER, check_buffer );
-  glBufferData( GL_ARRAY_BUFFER, check_bytes*check_color_bytes, NULL, GL_STATIC_DRAW );
+  glBufferData( GL_ARRAY_BUFFER, check_bytes+check_color_bytes, NULL, GL_STATIC_DRAW );
   glBufferSubData( GL_ARRAY_BUFFER, 0, check_bytes, check );
   glBufferSubData( GL_ARRAY_BUFFER, check_bytes, check_color_bytes, check_colors );
 
