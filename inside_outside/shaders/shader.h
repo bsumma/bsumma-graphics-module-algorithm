@@ -1,0 +1,15 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+//  --- shader.h ---
+//
+//////////////////////////////////////////////////////////////////////////////
+
+#ifndef __SHADER_H__
+#define __SHADER_H__
+
+#include <string>
+
+std::string shader_path = "/Users/bsumma/Teaching/graphics/2022/starter_code/4 Geo Algorithms/inside_outside/shaders/";
+
+
+#endif // __SHADER_H__
